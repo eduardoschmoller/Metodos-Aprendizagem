@@ -1,0 +1,4 @@
+sudo apt install texlive-latex-recommended texlive-science texlive-latex-extra
+
+para compilar: pdflatex arquivo.tex
+
