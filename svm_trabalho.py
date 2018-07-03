@@ -36,3 +36,5 @@ print(accuracy_score(np.ravel(Y_test), pred))
 C = confusion_matrix(np.ravel(Y_test), pred)
 
 D = cohen_kappa_score(np.ravel(Y_test), pred)
+
+print(D)
