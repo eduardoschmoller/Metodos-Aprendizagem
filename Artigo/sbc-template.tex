@@ -23,41 +23,50 @@
 
 \maketitle
 
-\begin{abstract}
-  This meta-paper describes the style to be used in articles and short papers
-  for SBC conferences. For papers in English, you should add just an abstract
-  while for the papers in Portuguese, we also ask for an abstract in
-  Portuguese (``resumo''). In both cases, abstracts should not have more than
-  10 lines and must be in the first page of the paper.
-\end{abstract}
-
-\begin{resumo}
-  Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
-  resumos de artigos para publicação nos anais das conferências organizadas
-  pela SBC. É solicitada a escrita de resumo e abstract apenas para os artigos
-  escritos em português. Artigos em inglês deverão apresentar apenas abstract.
-  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
-  não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
-  página do artigo.
-\end{resumo}
+%\begin{abstract}
+%  This meta-paper describes the style to be used in articles and short papers
+%  for SBC conferences. For papers in English, you should add just an abstract
+%  while for the papers in Portuguese, we also ask for an abstract in
+%  Portuguese (``resumo''). In both cases, abstracts should not have more than
+%  10 lines and must be in the first page of the paper.
+%\end{abstract}
+%
+%\begin{resumo}
+%  Este meta-artigo descreve o estilo a ser usado na confecção de artigos e
+%  resumos de artigos para publicação nos anais das conferências organizadas
+%  pela SBC. É solicitada a escrita de resumo e abstract apenas para os artigos
+%  escritos em português. Artigos em inglês deverão apresentar apenas abstract.
+%  Nos dois casos, o autor deve tomar cuidado para que o resumo (e o abstract)
+%  não ultrapassem 10 linhas cada, sendo que ambos devem estar na primeira
+%  página do artigo.
+%\end{resumo}
 
 \section{Introdução}
 
+	Este trabalho apresentara resultados da aplicação de métodos de aprendizado de maquinas na predição de movimentos humanos. Foram implementados os seguintes métodos de aprendizado: knn, perceptron e svm. 
 	
-	Dados obtidos de \cite{Dua:2017}
+	Os dados de entrada foram obtidos de \cite{Dua:2017} e são dados de acelerômetro e giroscópio de smartphone junto ao corpo em atividades de levantar, sentar, deitar, caminhar, subir escadas e descer escadas. Os testes foram aplicados em 30 voluntários e os dados foram coletados através dos sensores do smartphone, acelerômetro de 3 eixos e giroscópio de 3 eixos.
+	
+	Os dados brutos obtidos dos sensores foram pré-processados com a aplicação de filtros para remoção de ruídos, amostrados em intervalos constantes de tempo e normalizados, obtendo um total de 561 características.
 
-	Dados de entrada
-
+	Cada conjunto de dados que representam os movimentos receberam uma \emph{label}, o conjunto de características e o conjunto de \emph{label} são entradas para os algoritmos de classificação.
+	
+	Como forma de validação do processo de aprendizado, o conjunto de dados de entrada foi dividido em dois subconjuntos denominados conjunto de treino e conjunto de testes. O conjunto de treino é utilizado no processo de treinamento, após o processo de treinamento o conjunto de testes é classificado e os resultados são comparados com as resultados esperados.
+	
+	Ainda, os algorítimos foram alterados através da redução de dimensionalidade com o uso do método PCA.
+	 
 	Normalização
 
-	Seleção de caracteristicas
+	Seleção de características
 
 	Validação
 
-	Metricas
+	Como métrica para a determinação da qualidade do processo de aprendizados foram utilizadas a acurácia da predição e utilização do \emph{kappa score} para 
 
 \section{Revisão}
-	...
+
+	Esta seção apresenta os métodos aplicados para a classificação dos movimentos.
+
 \subsection{Perceptron}
 
 	\url{http://ml.informatik.uni-freiburg.de/former/_media/documents/teaching/ss09/ml/perceptrons.pdf}
@@ -94,7 +103,25 @@
 		\url{https://academic.oup.com/ptj/article/85/3/257/2805022}
 		
 \section{Resultados}
-	...
+
+	\begin{figure}[ht]
+	\centering
+	\includegraphics[width=.5\textwidth]{knn_pca_quadratic.png}
+	\caption{A typical figure}
+	\label{fig:knnpcaquadratic}
+	\end{figure}
+
+\begin{table}[!h]
+	\begin{tabular}{l|ccc}
+		Método &  Acurácia& Kappa Score& \\ \cline{1-4} \cline{1-4}
+		KNN &  2&  3 & \\
+		Perceptron &  &  &  \\
+		SVM &  &  & \\
+		KNN + PCA & & & 
+	\end{tabular}
+	\label{table:resultados}
+\end{table}
+
 \section{Conclusões}
 	...
 %\section{General Information}
