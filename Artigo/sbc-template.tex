@@ -6,6 +6,7 @@
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[hidelinks]{hyperref}
+\usepackage{booktabs}
 
 
 \sloppy
@@ -57,7 +58,7 @@
 	 
 	Normalização
 
-	Seleção de características
+	Seleção de características -> PCA
 
 	Validação
 
@@ -76,14 +77,14 @@
 	\url{http://chem-eng.utoronto.ca/~datamining/Presentations/KNN.pdf}\\
 	\url{https://www.ethz.ch/content/dam/ethz/special-interest/gess/computational-social-science-dam/documents/education/Spring2015/datascience/K-Nearest-Neighbour-Classifier.pdf}
 
-\subsection{PCA}
-
-	\url{http://www.iro.umontreal.ca/~pift6080/H09/documents/papers/pca_tutorial.pdf}\\
-	\url{http://www.stat.cmu.edu/~cshalizi/350/lectures/10/lecture-10.pdf}
-
 \subsection{SVM}
 
 	\url{http://deeplearning.net/wp-content/uploads/2013/03/dlsvm.pdf}
+
+\subsection{PCA}
+
+\url{http://www.iro.umontreal.ca/~pift6080/H09/documents/papers/pca_tutorial.pdf}\\
+\url{http://www.stat.cmu.edu/~cshalizi/350/lectures/10/lecture-10.pdf}
 
 \subsection{Testes Estatisticos}
 	...
@@ -104,22 +105,24 @@
 		
 \section{Resultados}
 
-	\begin{figure}[ht]
+	\begin{figure}[!ht]
 	\centering
 	\includegraphics[width=.5\textwidth]{knn_pca_quadratic.png}
-	\caption{A typical figure}
+	\caption{Acurácia e Kappa score KNN}
 	\label{fig:knnpcaquadratic}
 	\end{figure}
 
 \begin{table}[!h]
-	\begin{tabular}{l|ccc}
-		Método &  Acurácia& Kappa Score& \\ \cline{1-4} \cline{1-4}
-		KNN &  2&  3 & \\
-		Perceptron &  &  &  \\
-		SVM &  &  & \\
-		KNN + PCA & & & 
+	\centering
+	\begin{tabular}{@{}ccc@{}}
+		\toprule
+		Método& Acurácia &  Kappa Score  \\ \midrule
+		KNN & x & y     \\
+		Perceptron&  &   \\
+		SVM &  &     \\ \bottomrule
 	\end{tabular}
-	\label{table:resultados}
+	\caption{Resultados}
+	\label{table:resultado}
 \end{table}
 
 \section{Conclusões}
