@@ -38,21 +38,28 @@ nbrs = knn(n_neighbors=5, algorithm= 'kd_tree')#kernel pode ser 'rbf', 'linear',
 #C = confusion_matrix(np.ravel(Y_test), pred)
 #
 #D = cohen_kappa_score(np.ravel(Y_test), pred)
+a = list()
+D1 = list()
+b = range(10,X.shape[1],25)
+for i in b:
+    X_pca = X
+    pca = decomposition.PCA(n_components=i)
+    pca.fit(X_pca)
+    X_pca = pca.transform(X_pca)
+
+    X_train, X_test, Y_train, Y_test = train_test_split( X_pca, Y, test_size=0.2, random_state = np.random.randint(100000))
 
 
-pca = decomposition.PCA(n_components=140)
-pca.fit(X)
-X = pca.transform(X)
+    nbrs.fit(X_train,Y_train)
 
-X_train, X_test, Y_train, Y_test = train_test_split( X, Y, test_size=0.2, random_state = np.random.randint(100000))
-
-
-nbrs.fit(X_train,Y_train)
-
-pred_pca = nbrs.predict(X_test)
-
-#print(accuracy_score(np.ravel(Y_test), pred))
-
+    pred_pca = nbrs.predict(X_test)
+    
+    a.append(accuracy_score(np.ravel(Y_test), pred_pca))
+    
+    D1.append(cohen_kappa_score(np.ravel(Y_test), pred_pca, weights="quadratic"))
+#    print(a[-1])
+#    print("\n")
+#    print(D1[-1])
+#    print("\n----")
+#    
 C1 = confusion_matrix(np.ravel(Y_test), pred_pca)
-
-D1 = cohen_kappa_score(np.ravel(Y_test), pred_pca)
