@@ -5,6 +5,7 @@
 \usepackage{graphicx,url}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 \usepackage{booktabs}
 
@@ -44,6 +45,8 @@
 
 \section{Introdução}
 
+	Exemplo artigo: \url{https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-11.pdf}\\
+
 	Este trabalho apresentara resultados da aplicação de métodos de aprendizado de maquinas na predição de movimentos humanos. Foram implementados os seguintes métodos de aprendizado: knn, perceptron e svm. 
 	
 	Os dados de entrada foram obtidos de \cite{Dua:2017} e são dados de acelerômetro e giroscópio de smartphone junto ao corpo em atividades de levantar, sentar, deitar, caminhar, subir escadas e descer escadas. Os testes foram aplicados em 30 voluntários e os dados foram coletados através dos sensores do smartphone, acelerômetro de 3 eixos e giroscópio de 3 eixos.
@@ -62,7 +65,7 @@
 
 	Validação
 
-	Como métrica para a determinação da qualidade do processo de aprendizados foram utilizadas a acurácia da predição e utilização do \emph{kappa score} para 
+	Como métrica para a determinação da qualidade do processo de aprendizados foram utilizadas a acurácia da predição e utilização do \emph{kappa score}.
 
 \section{Revisão}
 
@@ -87,10 +90,19 @@
 \url{http://www.stat.cmu.edu/~cshalizi/350/lectures/10/lecture-10.pdf}
 
 \subsection{Testes Estatisticos}
-	...
+
+	\url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.558.7319&rep=rep1&type=pdf}\\
+	\url{https://ai.vub.ac.be/sites/default/files/4.\%20Hypothesis\%20Testing.pdf}\\
+	\url{https://www.cl.cam.ac.uk/teaching/1617/MLRD/slides/slides4.pdf}\\
+	\url{http://www.public.asu.edu/~huanliu/dmml_presentation/T-test.pdf}
+
 	\subsubsection{Validação Cruzada}
 	
 		\url{https://www.analyticsvidhya.com/blog/2018/05/improve-model-performance-cross-validation-in-python-r/}\\
+		\url{https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f}\\
+		\url{https://www.kaggle.com/dansbecker/cross-validation}\\
+		\url{https://www.researchgate.net/profile/Ron_Kohavi/publication/2352264_A_Study_of_Cross-Validation_and_Bootstrap_for_Accuracy_Estimation_and_Model_Selection/links/02e7e51bcc14c5e91c000000.pdf}\\
+		\url{http://scikit-learn.org/stable/modules/model_evaluation.html}
 		
 	\subsubsection{Matriz de Confusão}
 	
@@ -105,14 +117,14 @@
 		
 \section{Resultados}
 
-	\begin{figure}[!ht]
+	\begin{figure}[!htb]
 	\centering
-	\includegraphics[width=.5\textwidth]{knn_pca_quadratic.png}
+	\includegraphics[width=.5\textwidth]{knn_pca_quadratic.pdf}
 	\caption{Acurácia e Kappa score KNN}
 	\label{fig:knnpcaquadratic}
 	\end{figure}
 
-\begin{table}[!h]
+\begin{table}[!htb]
 	\centering
 	\begin{tabular}{@{}ccc@{}}
 		\toprule
