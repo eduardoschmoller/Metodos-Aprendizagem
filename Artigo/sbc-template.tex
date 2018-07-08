@@ -47,25 +47,20 @@
 
 	Exemplo artigo: \url{https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-11.pdf}\\
 
-	Este trabalho apresentara resultados da aplicação de métodos de aprendizado de maquinas na predição de movimentos humanos. Foram implementados os seguintes métodos de aprendizado: knn, perceptron e svm. 
+	Este trabalho apresentará resultados da aplicação de métodos de aprendizado de máquinas na predição de movimentos humanos. Foram implementados os seguintes métodos de aprendizado: KNN, Perceptron e SVM. 
 	
-	Os dados de entrada foram obtidos de \cite{Dua:2017} e são dados de acelerômetro e giroscópio de smartphone junto ao corpo em atividades de levantar, sentar, deitar, caminhar, subir escadas e descer escadas. Os testes foram aplicados em 30 voluntários e os dados foram coletados através dos sensores do smartphone, acelerômetro de 3 eixos e giroscópio de 3 eixos.
+	Os dados para base para treinamento e teste foram obtidos de \cite{Dua:2017}. Essas informações são referente a sensores de um dispositivo móvel Galaxy Samsung S2. O \textit{smartphone} foi mantido junto ao corpo dos voluntários em atividades de: Levantar, sentar, deitar, caminhar, subir escadas e descer escadas. Os testes foram executados com 30 voluntários e os dados coletados através dos sensores do smartphone, acelerômetro de 3 eixos e giroscópio de 3 eixos.
 	
-	Os dados brutos obtidos dos sensores foram pré-processados com a aplicação de filtros para remoção de ruídos, amostrados em intervalos constantes de tempo e normalizados, obtendo um total de 561 características.
-
-	Cada conjunto de dados que representam os movimentos receberam uma \emph{label}, o conjunto de características e o conjunto de \emph{label} são entradas para os algoritmos de classificação.
+	Os dados obtidos dos sensores foram pré-processados com a aplicação de filtros para remoção de ruídos, amostrados em intervalos constantes de tempo e normalizados. Também foram segmentados separando cada um dos 3 eixos e calculando várias informações estatísicas (totalmente descritas em cite{Dua:2017}), como média, desvio padrão, máximo, mínimo, entre outras, totalizando 561 características.Cada conjunto de dados que representa os movimentos recebeu uma identificação. O conjunto de características e de idenficações (\emph{label}) são entradas para os algoritmos de classificação.
 	
 	Como forma de validação do processo de aprendizado, o conjunto de dados de entrada foi dividido em dois subconjuntos denominados conjunto de treino e conjunto de testes. O conjunto de treino é utilizado no processo de treinamento, após o processo de treinamento o conjunto de testes é classificado e os resultados são comparados com as resultados esperados.
 	
-	Ainda, os algorítimos foram alterados através da redução de dimensionalidade com o uso do método PCA.
-	 
-	Normalização
+	Ainda, os algorítimos foram alterados através da redução de dimensionalidade com o uso do método PCA. Como esse método não entrega um resultado ótimo, foi necessário variar o número de componentes para encontrar a melhor combinação.
 
-	Seleção de características -> PCA
 
 	Validação
 
-	Como métrica para a determinação da qualidade do processo de aprendizados foram utilizadas a acurácia da predição e utilização do \emph{kappa score}.
+	Como métrica para a determinação da qualidade do processo de aprendizados foram utilizadas a acurácia da predição e utilização do \emph{kappa score}. 
 
 \section{Revisão}
 

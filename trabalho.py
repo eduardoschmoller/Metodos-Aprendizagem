@@ -56,6 +56,7 @@ for i in b:
 
     # SVM
     
+    
     #PERCETRON
 
 #    print(a[-1])
