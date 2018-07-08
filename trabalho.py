@@ -11,6 +11,8 @@ from sklearn.neighbors import KNeighborsClassifier as knn
 import pandas as pd
 from sklearn.metrics import accuracy_score, confusion_matrix, cohen_kappa_score 
 
+
+from sklearn.svm import SVC
 from sklearn import decomposition
 
 #entrada de dados
@@ -38,9 +40,19 @@ nbrs = knn(n_neighbors=5, algorithm= 'kd_tree')#kernel pode ser 'rbf', 'linear',
 #C = confusion_matrix(np.ravel(Y_test), pred)
 #
 #D = cohen_kappa_score(np.ravel(Y_test), pred)
+C_knn = list()
+C_svm = list()
+C_perceptron = list()
+A_knn = list()
+A_svm = list()
+A_perceptron = list()
+D_knn = list()
+D_svm = list()
+D_perceptron = list()
+
 a = list()
 D1 = list()
-b = range(10,X.shape[1],25)
+b =     range(10,X.shape[1],10)
 for i in b:
     X_pca = X
     pca = decomposition.PCA(n_components=i)
@@ -50,18 +62,38 @@ for i in b:
     
     # KNN
     nbrs.fit(X_train,Y_train)
-    pred_pca = nbrs.predict(X_test)
-    a.append(accuracy_score(np.ravel(Y_test), pred_pca))
-    D1.append(cohen_kappa_score(np.ravel(Y_test), pred_pca, weights="quadratic"))
+    pred_knn = nbrs.predict(X_test)
+    a.append(accuracy_score(np.ravel(Y_test), pred_knn))
+    D1.append(cohen_kappa_score(np.ravel(Y_test), pred_knn, weights="quadratic"))
 
     # SVM
+    clf = SVC(kernel = 'rbf') #kernel pode ser 'rbf', 'linear', 'poly', 'signmoid'
+    clf.fit(X_train, np.ravel(Y_train))
+    pred_svm = clf.predict(X_test)
     
     
     #PERCETRON
+    from sklearn.linear_model import Perceptron
+    ppn = Perceptron(max_iter=100, eta0=0.1, verbose=2, n_jobs = 9)
+    ppn.fit(X_train, Y_train)
+
+    # Classify test samples
+    pred_perceptron = ppn.predict(X_test)
 
 #    print(a[-1])
 #    print("\n")
 #    print(D1[-1])
 #    print("\n----")
 #    
-C1 = confusion_matrix(np.ravel(Y_test), pred_pca)
+    C_knn.append(confusion_matrix(np.ravel(Y_test), pred_knn))
+    C_svm.append(confusion_matrix(np.ravel(Y_test), pred_svm))
+    C_perceptron.append( confusion_matrix(np.ravel(Y_test), pred_perceptron))
+    
+    A_knn.append(accuracy_score(np.ravel(Y_test), pred_knn))
+    A_svm.append( accuracy_score(np.ravel(Y_test), pred_svm))
+    A_perceptron.append( accuracy_score(np.ravel(Y_test), pred_perceptron))
+    
+    D_knn.append( cohen_kappa_score(np.ravel(Y_test), pred_knn))
+    D_svm.append( cohen_kappa_score(np.ravel(Y_test), pred_svm))
+    D_perceptron.append( cohen_kappa_score(np.ravel(Y_test), pred_perceptron))
+    
