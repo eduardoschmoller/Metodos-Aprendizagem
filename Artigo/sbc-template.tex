@@ -57,9 +57,6 @@
 	
 	Ainda, os algorítimos foram alterados através da redução de dimensionalidade com o uso do método PCA. Como esse método não entrega um resultado ótimo, foi necessário variar o número de componentes para encontrar a melhor combinação.
 
-
-	Validação
-
 	Como métrica para a determinação da qualidade do processo de aprendizados foram utilizadas a acurácia da predição e utilização do \emph{kappa score}. 
 
 \section{Revisão}
@@ -70,20 +67,23 @@
 
 	\url{http://ml.informatik.uni-freiburg.de/former/_media/documents/teaching/ss09/ml/perceptrons.pdf}
 
+	Classificador linear 
 \subsection{KNN}
 
-	\url{http://chem-eng.utoronto.ca/~datamining/Presentations/KNN.pdf}\\
-	\url{https://www.ethz.ch/content/dam/ethz/special-interest/gess/computational-social-science-dam/documents/education/Spring2015/datascience/K-Nearest-Neighbour-Classifier.pdf}
+	KNN algoritmo simples que realiza o aprendizado de todas as entradas e classifica as novas entradas com base na similaridade dos casos já aprendidos. Ao realizar a classificação de uma nova entrada é retornado \emph{k} vizinhos mais próximos, classificação se dá pela maioria dos vizinhos.
+	
 
 \subsection{SVM}
 
-	\url{http://deeplearning.net/wp-content/uploads/2013/03/dlsvm.pdf}
-
+	SVM é um classificador definindo a separação entre as classes através de um hiperplano, a entrada são dados com \emph{labels} e a saída é um hiperplano ótimo para categorização de novas entradas. Em duas dimensões o hiperplano é representado através de uma reta que divide o plano em duas partes.
+	
 \subsection{PCA}
 
 \url{http://www.iro.umontreal.ca/~pift6080/H09/documents/papers/pca_tutorial.pdf}\\
 \url{http://www.stat.cmu.edu/~cshalizi/350/lectures/10/lecture-10.pdf}
 
+	Redutor de dimensionalidade selecionando as principais componentes, entre as formas de encontrar as componentes principais é buscar as projeções que maximizem a variança.
+	
 \subsection{Testes Estatisticos}
 
 	\url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.558.7319&rep=rep1&type=pdf}\\
