@@ -116,12 +116,14 @@
 		
 \section{Resultados}
 	Com a aplicação dos métodos citados anteriormente foi possível apresentar a Figura \ref{fig:todos}. Esse gráfico representa a busca pelo melhor agrupamento de características utilizando PCA. Como é possível observar, cada um dos métodos tem um comportamento diferente. O Perceptron tem melhores resultados quanto maior for a quantidade de características; Já o KNN não apresenta muitas melhoras; Por fim o SVM tem uma redução da acurácia para maior quantidade de características. É importante notar que apesar da variação nos resultados, as perdas são relativamente pequenas, cerca de 5\%. O código executado partiu de 10 grupos a 260 grupos, com incremento de 10
+
 	\begin{figure}[!htb]
 	\centering
 	\includegraphics[width=.5\textwidth]{Todos.pdf}
 	\caption{Acurácia - KNN, SVM, Perceptron}
 	\label{fig:todos}
 	\end{figure}
+
 	Porém, é sabido que os bons resultados da acurácia podem não ser reais. Para isso, foi aplicado o Kappa-Score, como explicado anteriormente ele pondera os falso-positivos e falso-negativos, quando comparado à acurácia a diferença entre esses dois valores informa a qualidade do método. A Figura \ref{fig:kappa_accu}, apresenta essa comparação em relação aos 3 métodos.
 
 	\begin{figure}[h]
@@ -131,11 +133,13 @@
 	\subfigure[Comparação - SVM]{
 	\includegraphics[scale=0.45]{svm_kappa_accu.pdf}}
 	\subfigure[Comparação - Perceptron]{
-%	\includegraphics[scale=0.45]{perceptron_kappa_accu.pdf}}
+	\includegraphics[scale=0.45]{Perceptron_kappa_accu.pdf}}
 	\caption{Comparação entre Acurácia e Kappa Score }
 	\label{fig:kappa_accu}
 	\end{figure}
-%\newpage
+
+\newpage
+
 	Obervando esses resultados, foi possível obter o melhor agrupamento para cada um dos métodos, essa escolha é apresentada na Tabela \ref{table:resultados}. 
 	
 	\begin{table}[ht]
@@ -159,7 +163,6 @@
 		\end{tabular}
 	\end{table}
 	
-	
 	Para o caso ótimo desses conjuntos foi construída a matriz de confusão, afim de validar as informações apresentadas pela acurácia e Kappa Score. As matrizes apresentadas na Figura \ref{fig:confusao}
 	
 	\begin{figure}[!htb]
@@ -174,7 +177,7 @@
 	\label{fig:confusao}
 	\end{figure}
 
-%\newpage
+\newpage
 
 \section{Conclusões}
 	Este trabalho permitiu a compreensão de alguns métodos de aprendizagem. A escolha de cada método deve ser adequada ao tipo dos dados a serem aprendidos e, neste caso, a não uniformidade da quantidade de informações sobre cada característica gerou uma diferença consideral entre cada método. Também notou-se que a técnica PCA não necessariamente colabora com os resultados, por exemplo, no método Perceptron, quanto mais características, melhor foram os resultados. Outro fator notável, foi o ganho ao aumentar a quantidade de classes, isso gerou um ganho relativamente pequeno de acurácia e aumentou o tempo de computação consideravelmente. De forma conclusiva, não houve um método com destaque nos resultados obtidos, as diferenças foram sutis e todos foram considerados satisfatórios.
