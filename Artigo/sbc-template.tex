@@ -46,7 +46,7 @@
 
 \section{Introdução}
 
-	Exemplo artigo: \url{https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-11.pdf}\\
+%	Exemplo artigo: \url{https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-11.pdf}\\
 
 	Este trabalho apresentará resultados da aplicação de métodos de aprendizado de máquinas na predição de movimentos humanos. Foram implementados os seguintes métodos de aprendizado: KNN, Perceptron e SVM. 
 	
@@ -66,9 +66,12 @@
 
 \subsection{Perceptron}
 
-	\url{http://ml.informatik.uni-freiburg.de/former/_media/documents/teaching/ss09/ml/perceptrons.pdf}
+%	\url{http://ml.informatik.uni-freiburg.de/former/_media/documents/teaching/ss09/ml/perceptrons.pdf}
 
-	Classificador linear 
+	Separador linear através de uma função de \emph{threshhold}, reta esta que é definida através de pesos. O treinamento de um perceptron consiste na entrada de um conjunto de casos e calcular a saída para cada caso, após cada entrada os pesos são ajustados de forma a minimizar o erro na saída, o erro é definido como a diferença entre a saída e a saída esperada, não existe erro caso a saída e a saída esperada sejam iguais.
+	
+	Perceptron de uma única camada apenas separam problemas lineares, para a classificação de classes que não sejam separáveis linearmente é necessário um perceptron de múltiplas camadas.
+	
 \subsection{KNN}
 
 	KNN algoritmo simples que realiza o aprendizado de todas as entradas e classifica as novas entradas com base na similaridade dos casos já aprendidos. Ao realizar a classificação de uma nova entrada é retornado \emph{k} vizinhos mais próximos, classificação se dá pela maioria dos vizinhos.
@@ -124,6 +127,7 @@
 
 	\begin{figure}[h]
 	\centering
+<<<<<<< HEAD
 	\subfigure[Comparação - KNN]{
 	\includegraphics[scale=0.45]{knn_kappa_accu.pdf}}
 	\subfigure[Comparação - SVM]{
@@ -176,6 +180,35 @@
 
 
 \newpage
+=======
+	\caption{Resultados}
+	\label{table:resultados}
+	\smallskip
+	\begin{tabular}{|l|c|c|}
+		\hline
+		Método& Acurracia & Kappa Score\\[0.5ex]
+		\hline
+		&&\\[-2ex]
+		KNN & $0.94$ & $0.93$\\[0.5ex]
+		\hline
+		&&\\[-2ex]
+		Perceptron & $0.96$ & $0.96$\\[0.5ex]
+		\hline
+		&&\\[-2ex]
+		SVM & $0.92$ & $0.91$\\[0.5ex]
+		\hline
+		&&\\[-2ex]
+		KNN + PCA & & \\[0.5ex]
+		\hline
+		&&\\[-2ex]
+		Perceptron + PCA & & \\[0.5ex]
+		\hline
+		&&\\[-2ex]
+		SVM + PCA & & \\[0.5ex]
+		\hline
+	\end{tabular}
+\end{table}
+>>>>>>> 13a2542d8583a66b9f1fe2b555fb8ff597ae4bb1
 
 \section{Conclusões}
 	Este trabalho permitiu a compreensão de alguns métodos de aprendizagem. A escolha de cada método deve ser adequada ao tipo dos dados a serem aprendidos e, neste caso, a não uniformidade da quantidade de informações sobre cada característica gerou uma diferença consideral entre cada método. Também notou-se que a técnica PCA não necessariamente colabora com os resultados, por exemplo, no método Perceptron, quanto mais características, melhor foram os resultados. Outro fator notável, foi o ganho ao aumentar a quantidade de classes, isso gerou um ganho relativamente pequeno de acurácia e aumentou o tempo de computação consideravelmente. De forma conclusiva, não houve um método com destaque nos resultados obtidos, as diferenças foram sutis e todos foram considerados satisfatórios.
