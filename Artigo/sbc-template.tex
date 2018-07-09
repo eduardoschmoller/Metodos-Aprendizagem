@@ -45,7 +45,7 @@
 
 \section{Introdução}
 
-	Exemplo artigo: \url{https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-11.pdf}\\
+%	Exemplo artigo: \url{https://www.elen.ucl.ac.be/Proceedings/esann/esannpdf/es2013-11.pdf}\\
 
 	Este trabalho apresentará resultados da aplicação de métodos de aprendizado de máquinas na predição de movimentos humanos. Foram implementados os seguintes métodos de aprendizado: KNN, Perceptron e SVM. 
 	
@@ -65,9 +65,12 @@
 
 \subsection{Perceptron}
 
-	\url{http://ml.informatik.uni-freiburg.de/former/_media/documents/teaching/ss09/ml/perceptrons.pdf}
+%	\url{http://ml.informatik.uni-freiburg.de/former/_media/documents/teaching/ss09/ml/perceptrons.pdf}
 
-	Classificador linear 
+	Separador linear através de uma função de \emph{threshhold}, reta esta que é definida através de pesos. O treinamento de um perceptron consiste na entrada de um conjunto de casos e calcular a saída para cada caso, após cada entrada os pesos são ajustados de forma a minimizar o erro na saída, o erro é definido como a diferença entre a saída e a saída esperada, não existe erro caso a saída e a saída esperada sejam iguais.
+	
+	Perceptron de uma única camada apenas separam problemas lineares, para a classificação de classes que não sejam separáveis linearmente é necessário um perceptron de múltiplas camadas.
+	
 \subsection{KNN}
 
 	KNN algoritmo simples que realiza o aprendizado de todas as entradas e classifica as novas entradas com base na similaridade dos casos já aprendidos. Ao realizar a classificação de uma nova entrada é retornado \emph{k} vizinhos mais próximos, classificação se dá pela maioria dos vizinhos.
@@ -130,13 +133,13 @@
 		Método& Acurracia & Kappa Score\\[0.5ex]
 		\hline
 		&&\\[-2ex]
-		KNN & & \\[0.5ex]
+		KNN & $0.94$ & $0.93$\\[0.5ex]
 		\hline
 		&&\\[-2ex]
-		Perceptron & & \\[0.5ex]
+		Perceptron & $0.96$ & $0.96$\\[0.5ex]
 		\hline
 		&&\\[-2ex]
-		SVM &  &\\[0.5ex]
+		SVM & $0.92$ & $0.91$\\[0.5ex]
 		\hline
 		&&\\[-2ex]
 		KNN + PCA & & \\[0.5ex]

@@ -7,6 +7,7 @@ Created on Wed May 16 19:54:46 2018
 
 import pandas as pd
 import numpy as np
+from sklearn.metrics import accuracy_score, confusion_matrix, cohen_kappa_score 
 
 X_train = pd.read_csv("X_train.txt", sep = " ", header=None)
 Y_train = pd.read_csv("y_train.txt", sep = " ", header=None)
@@ -23,7 +24,6 @@ from sklearn.model_selection import train_test_split
 X_train, X_test, Y_train, Y_test = train_test_split( X, Y, test_size=0.3)
 
 from sklearn.linear_model import Perceptron
-from sklearn.metrics import confusion_matrix
 
 ppn = Perceptron(max_iter=100, eta0=0.1, verbose=2, n_jobs = 9)
 ppn.fit(X_train, Y_train)
@@ -33,10 +33,11 @@ y_pred = ppn.predict(X_test)
 
 C = confusion_matrix(Y_test,y_pred)
 
+D = cohen_kappa_score(np.ravel(Y_test), y_pred)
+
 #print(C)
 
 # Measuring the accuracy in 3 different ways
-from sklearn.metrics import accuracy_score
 print('Misclassified samples: %d' % (np.ravel(Y_test) != y_pred).sum())
 print('Accuracy: %.2f' % accuracy_score(np.ravel(Y_test), y_pred))
 print('Accuracy: %.2f' % ppn.score(X_test, np.ravel(Y_test)))
