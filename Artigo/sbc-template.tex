@@ -8,6 +8,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 \usepackage{booktabs}
+\usepackage{subfigure}
 
 
 \sloppy
@@ -65,8 +66,6 @@
 
 \subsection{Perceptron}
 
-%	\url{http://ml.informatik.uni-freiburg.de/former/_media/documents/teaching/ss09/ml/perceptrons.pdf}
-
 	Separador linear através de uma função de \emph{threshhold}, reta esta que é definida através de pesos. O treinamento de um perceptron consiste na entrada de um conjunto de casos e calcular a saída para cada caso, após cada entrada os pesos são ajustados de forma a minimizar o erro na saída, o erro é definido como a diferença entre a saída e a saída esperada, não existe erro caso a saída e a saída esperada sejam iguais.
 	
 	Perceptron de uma única camada apenas separam problemas lineares, para a classificação de classes que não sejam separáveis linearmente é necessário um perceptron de múltiplas camadas.
@@ -75,7 +74,6 @@
 
 	KNN algoritmo simples que realiza o aprendizado de todas as entradas e classifica as novas entradas com base na similaridade dos casos já aprendidos. Ao realizar a classificação de uma nova entrada é retornado \emph{k} vizinhos mais próximos, classificação se dá pela maioria dos vizinhos.
 	
-
 \subsection{SVM}
 
 	SVM é um classificador definindo a separação entre as classes através de um hiperplano, a entrada são dados com \emph{labels} e a saída é um hiperplano ótimo para categorização de novas entradas. Em duas dimensões o hiperplano é representado através de uma reta que divide o plano em duas partes.
@@ -89,11 +87,6 @@
 	Testes estatísticos são utilizados para validação de hipóteses usando dados amostrais para decidir sobre a validade da hipótese.
 	
 	Cenários típicos de uso de testes estatísticos em métodos de aprendizado: adição de etapas de processamento, comparar diversos algoritmos, validação de capacidade de generalização de um classificador. O principio básico é a formulação de hipóteses e decidir se os dados mostram alguma evidencia para rejeição da hipótese.
-	
-%	\url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.558.7319&rep=rep1&type=pdf}\\
-%	\url{https://ai.vub.ac.be/sites/default/files/4.\%20Hypothesis\%20Testing.pdf}\\
-%	\url{https://www.cl.cam.ac.uk/teaching/1617/MLRD/slides/slides4.pdf}\\
-%	\url{http://www.public.asu.edu/~huanliu/dmml_presentation/T-test.pdf}
 
 	\subsubsection{Validação Cruzada}
 		
@@ -122,46 +115,73 @@
 	Concordância muito boa = 0.80 até 1.00	
 		
 \section{Resultados}
-
+	Com a aplicação dos métodos citados anteriormente foi possível apresentar a Figura \ref{fig:todos}. Esse gráfico representa a busca pelo melhor agrupamento de características utilizando PCA. Como é possível observar, cada um dos métodos tem um comportamento diferente. O Perceptron tem melhores resultados quanto maior for a quantidade de características; Já o KNN não apresenta muitas melhoras; Por fim o SVM tem uma redução da acurácia para maior quantidade de características. É importante notar que apesar da variação nos resultados, as perdas são relativamente pequenas, cerca de 5\%. O código executado partiu de 10 grupos a 260 grupos, com incremento de 10
 	\begin{figure}[!htb]
 	\centering
-	\includegraphics[width=.5\textwidth]{knn_pca_quadratic.pdf}
-	\caption{Acurácia e Kappa score KNN}
-	\label{fig:knnpcaquadratic}
+	\includegraphics[width=.5\textwidth]{Todos.pdf}
+	\caption{Acurácia - KNN, SVM, Perceptron}
+	\label{fig:todos}
+	\end{figure}
+	Porém, é sabido que os bons resultados da acurácia podem não ser reais. Para isso, foi aplicado o Kappa-Score, como explicado anteriormente ele pondera os falso-positivos e falso-negativos, quando comparado à acurácia a diferença entre esses dois valores informa a qualidade do método. A Figura \ref{fig:kappa_accu}, aprenseta essa comparação em relação aos 3 métodos.
+
+	\begin{figure}[h]
+	\centering
+<<<<<<< HEAD
+	\subfigure[Comparação - KNN]{
+	\includegraphics[scale=0.45]{knn_kappa_accu.pdf}}
+	\subfigure[Comparação - SVM]{
+	\includegraphics[scale=0.45]{svm_kappa_accu.pdf}}
+	\subfigure[Comparação - Perceptron]{
+	\includegraphics[scale=0.45]{perceptron_kappa_accu.pdf}}
+	\caption{Comparação entre Acurácia e Kappa Score }
+	\label{fig:kappa_accu}
+	\end{figure}
+\newpage
+	Obervando esses resultados, foi possível obter o melhor agrupamento para cada um dos métodos, essa escolha é apresentada na Tabela \ref{table:resultados}. 
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Resultados}
+		\label{table:resultados}
+		\smallskip
+		\begin{tabular}{|l|c|c|c|}
+			\hline
+			Método& Acurácia & Kappa Score& Agrupamento\\[0.5ex]
+			\hline
+			&&\\[-2ex]
+			KNN &0.9652 & 0.9589 &230\\[0.5ex]
+			\hline
+			&&\\[-2ex]
+			Perceptron &0.9762 &0.9718 &520\\[0.5ex]
+			\hline	
+			&&\\[-2ex]
+			SVM & 0.9663 &0.9572& 240\\[0.5ex]
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	Para o caso ótimo desses conjuntos foi construída a matriz de confusão, afim de validar as informações apresentadas pela acurácia e Kappa Score. As matrizes apresentadas na Figura \ref{fig:confusao}
+	
+	\begin{figure}[!htb]
+	\centering
+	\subfigure[Matriz de Confusão - KNN]{
+		\includegraphics[scale=0.45]{matrix_knn.pdf}}
+	\subfigure[Matriz de Confusão - SVM]{
+		\includegraphics[scale=0.45]{matrix_svm.pdf}}
+	\subfigure[Matriz de Confusão - Perceptron]{
+		\includegraphics[scale=0.45]{matrix_perceptron.pdf}}
+	\caption{Comparação entre Matrizes de confusão}
+	\label{fig:confusao}
 	\end{figure}
 
-\begin{table}[ht]
-	\centering
-	\caption{Resultados}
-	\label{table:resultados}
-	\smallskip
-	\begin{tabular}{|l|c|c|}
-		\hline
-		Método& Acurracia & Kappa Score\\[0.5ex]
-		\hline
-		&&\\[-2ex]
-		KNN & $0.94$ & $0.93$\\[0.5ex]
-		\hline
-		&&\\[-2ex]
-		Perceptron & $0.96$ & $0.96$\\[0.5ex]
-		\hline
-		&&\\[-2ex]
-		SVM & $0.92$ & $0.91$\\[0.5ex]
-		\hline
-		&&\\[-2ex]
-		KNN + PCA & & \\[0.5ex]
-		\hline
-		&&\\[-2ex]
-		Perceptron + PCA & & \\[0.5ex]
-		\hline
-		&&\\[-2ex]
-		SVM + PCA & & \\[0.5ex]
-		\hline
-	\end{tabular}
-\end{table}
+
+
+
+\newpage
 
 \section{Conclusões}
-	...
+	Este trabalho permitiu a compreensão de alguns métodos de aprendizagem. A escolha de cada método deve ser adequada ao tipo dos dados a serem aprendidos e, neste caso, a não uniformidade da quantidade de informações sobre cada característica gerou uma diferença consideral entre cada método. Também notou-se que a técnica PCA não necessariamente colabora com os resultados, por exemplo, no método Perceptron, quanto mais características, melhor foram os resultados. Outro fator notável, foi o ganho ao aumentar a quantidade de classes, isso gerou um ganho relativamente pequeno de acurácia e aumentou o tempo de computação consideravelmente. De forma conclusiva, não houve um método com destaque nos resultados obtidos, as diferenças foram sutis e todos foram considerados satisfatórios.
 
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
