@@ -96,12 +96,6 @@
 %	\url{http://www.public.asu.edu/~huanliu/dmml_presentation/T-test.pdf}
 
 	\subsubsection{Validação Cruzada}
-	
-%		\url{https://www.analyticsvidhya.com/blog/2018/05/improve-model-performance-cross-validation-in-python-r/}\\
-%		\url{https://towardsdatascience.com/cross-validation-in-machine-learning-72924a69872f}\\
-%		\url{https://www.kaggle.com/dansbecker/cross-validation}\\
-%		\url{https://www.researchgate.net/profile/Ron_Kohavi/publication/2352264_A_Study_of_Cross-Validation_and_Bootstrap_for_Accuracy_Estimation_and_Model_Selection/links/02e7e51bcc14c5e91c000000.pdf}\\
-%		\url{http://scikit-learn.org/stable/modules/model_evaluation.html}
 		
 		Validação cruzada é uma técnica que consiste em reservar uma parte do conjunto de dados para serem utilizados para testes após a etapa de treinamento.
 		
@@ -109,14 +103,23 @@
 		
 	\subsubsection{Matriz de Confusão}
 	
-		\url{http://www2.cs.uregina.ca/~hamilton/courses/831/notes/confusion_matrix/confusion_matrix.html}\\
+		Matriz de confusão contem informações sobre o estado real e o estado previsto por um classificador, a performance do sistema é avaliado usando os dados da matriz, em um sistema com duas classes os valores que podem ser calculados são: acurácia (proporção de predições corretas), recall (proporção de casos positivos classificados corretamente), falsos positivos (proporção de casos negativos classificados incorretamente), negativos (proporção de negativos classificados corretamente), falsos negativos (proporção de positivos classificados incorretamente), precisão (proporção de casos positivos classificados corretamente).
 		
 	\subsubsection{Kappa Score}
 	
-		\url{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3900052/}\\
-		\url{http://www.pmean.com/definitions/kappa.htm}\\
-		\url{http://www.statisticshowto.com/cohens-kappa-statistic/}\\
-		\url{https://academic.oup.com/ptj/article/85/3/257/2805022}
+	Kappa Score mede a confiabilidade de uma classificação entre múltiplos classificadores para um mesmo conjunto de dados, mede a porcentagem de valores de dados na diagonal principal da tabela e, em seguida, ajusta esses valores para a quantidade de concordância que poderia ser esperada em uma classificação aleatória.
+	
+	Possivel interpretação do resultado do Kappa Score:
+	
+	Pouca concordância = Menor que 0.20
+	
+	Razoável concordância = 0.20 até 0.40
+	
+	Moderada Concordância = 0.40 até 0.60
+	
+	Boa concordância = 0.60 até 0.80
+	
+	Concordância muito boa = 0.80 até 1.00	
 		
 \section{Resultados}
 
