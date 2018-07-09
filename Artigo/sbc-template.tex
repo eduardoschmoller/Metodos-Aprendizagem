@@ -119,10 +119,11 @@
 
 	\begin{figure}[!htb]
 	\centering
-	\includegraphics[width=.5\textwidth]{Todos.pdf}
+	\includegraphics[scale=0.45]{Todos.pdf}
 	\caption{Acurácia - KNN, SVM, Perceptron}
 	\label{fig:todos}
 	\end{figure}
+\newpage
 
 	Porém, é sabido que os bons resultados da acurácia podem não ser reais. Para isso, foi aplicado o Kappa-Score, como explicado anteriormente ele pondera os falso-positivos e falso-negativos, quando comparado à acurácia a diferença entre esses dois valores informa a qualidade do método. A Figura \ref{fig:kappa_accu}, apresenta essa comparação em relação aos 3 métodos.
 
@@ -138,7 +139,7 @@
 	\label{fig:kappa_accu}
 	\end{figure}
 
-\newpage
+
 
 	Obervando esses resultados, foi possível obter o melhor agrupamento para cada um dos métodos, essa escolha é apresentada na Tabela \ref{table:resultados}. 
 	
@@ -182,6 +183,7 @@
 \section{Conclusões}
 	Este trabalho permitiu a compreensão de alguns métodos de aprendizagem. A escolha de cada método deve ser adequada ao tipo dos dados a serem aprendidos e, neste caso, a não uniformidade da quantidade de informações sobre cada característica gerou uma diferença consideral entre cada método. Também notou-se que a técnica PCA não necessariamente colabora com os resultados, por exemplo, no método Perceptron, quanto mais características, melhor foram os resultados. Outro fator notável, foi o ganho ao aumentar a quantidade de classes, isso gerou um ganho relativamente pequeno de acurácia e aumentou o tempo de computação consideravelmente. De forma conclusiva, não houve um método com destaque nos resultados obtidos, as diferenças foram sutis e todos foram considerados satisfatórios.
 
+\newpage
 \bibliographystyle{sbc}
 \bibliography{sbc-template}
 
